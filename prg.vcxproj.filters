@@ -18,7 +18,7 @@
     <ClCompile Include="prg.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="w0rd_c0unt.h">
+    <ClCompile Include="wordcount.h">
       <Filter>Файлы заголовков</Filter>
     </ClCompile>
   </ItemGroup>

@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="prg.cpp" />
-    <ClCompile Include="w0rd_c0unt.h" />
+    <ClCompile Include="wordcount.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="matrix.h" />

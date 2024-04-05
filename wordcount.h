@@ -1,10 +1,11 @@
-#ifndef WRD_H
-#define WRD_H
+#pragma once
+#ifndef WORDCOUNT_H
+#define WORDCOUNT_H
 
 #include <fstream>
 #include <string>
 #include <iostream>
-int countOccurrences(const std::string& word, const std::string& filename) {
+int count_occurrences(const std::string& word, const std::string& filename) {
     std::ifstream file(filename);
     if (!file.is_open()) {
         std::cerr << "Ошибка открытия файла!" << std::endl;
