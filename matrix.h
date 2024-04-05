@@ -120,6 +120,17 @@ public:
         return !(*this == other);
     }
 
+    void write_to_binary(Matrix& matrix, std::string filename) {
+        std::fstream file(filename, std::ios::out | std::ios::binary);
+        if (!file.is_open()) {
+            std::cerr << "Ошибка открытия файла!" << std::endl;
+            throw std::runtime_error("bruh");
+        }
+
+        file.write(reinterpret_cast<char*>(matrix.data), sizeof(matrix.data));
+
+    }
+
 };
 
 
@@ -144,5 +155,8 @@ void write_to_file(Matrix &matrix, std::string filename) {
     file << matrix << std::endl;
 
 }
+
+
+
 
 #endif
