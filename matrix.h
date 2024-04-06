@@ -31,7 +31,7 @@ public:
 
     friend std::ostream& operator<<(std::ostream& out, const Matrix& mat);
 
-    int*& operator[](unsigned int index) { // Возвращая ссылку на указатель, можем обращаться как matrix[][]
+    int* operator[](unsigned int index) {
         return data[index];
     }
 
@@ -120,17 +120,35 @@ public:
         return !(*this == other);
     }
 
-    void write_to_binary(Matrix& matrix, std::string filename) {
-        std::fstream file(filename, std::ios::out | std::ios::binary);
+    void write_to_binary(Matrix &matrix, std::string filename) {
+        std::ofstream file(filename, std::ios::binary);
         if (!file.is_open()) {
             std::cerr << "Ошибка открытия файла!" << std::endl;
             throw std::runtime_error("bruh");
         }
 
-        file.write(reinterpret_cast<char*>(matrix.data), sizeof(matrix.data));
-
+        file.write(reinterpret_cast<char*>(matrix[0]), m * n * sizeof(unsigned int));
+        file.close();
     }
 
+    void read_from_binary(Matrix &matrix ,std::string filename) {
+        std::ifstream file(filename, std::ios::binary);
+        if (!file.is_open()) {
+            std::cerr << "Ошибка открытия файла!" << std::endl;
+            throw std::runtime_error("bruh");
+        }
+
+        file.read(reinterpret_cast<char*>(matrix[0]), m * n * sizeof(unsigned int));
+        file.close();
+
+        // Вывод данных матрицы для проверки
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                std::cout << matrix[i][j] << "|";
+            }
+            std::cout << std::endl;
+        }
+    }
 };
 
 
@@ -153,10 +171,24 @@ void write_to_file(Matrix &matrix, std::string filename) {
     }
 
     file << matrix << std::endl;
-
+    file.close();
 }
 
+void read_from_file(std::string filename) {
+    std::fstream file(filename);
+    if (!file.is_open()) {
+        std::cerr << "Ошибка открытия файла!" << std::endl;
+        throw std::runtime_error("bruh");
+    }
+    
+    std::string line;
 
+    while (std::getline(file, line))
+    {
+        std::cout << line << std::endl;
+    }
+    file.close();
+}
 
 
 #endif
