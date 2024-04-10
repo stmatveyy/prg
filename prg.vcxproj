@@ -127,10 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="books.cpp" />
     <ClCompile Include="prg.cpp" />
-    <ClCompile Include="wordcount.h" />
+    <ClCompile Include="wordcount.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="books.h" />
     <ClInclude Include="matrix.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

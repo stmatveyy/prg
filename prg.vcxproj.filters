@@ -18,12 +18,18 @@
     <ClCompile Include="prg.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="wordcount.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClCompile Include="wordcount.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="books.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="matrix.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="books.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
